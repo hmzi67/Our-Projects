@@ -76,54 +76,59 @@ const section = document.querySelector(".projects");
 const btn = document.querySelector(".btn-container");
 
 window.addEventListener("DOMContentLoaded", function () {
-    displayButtons(ourProjects);
-    displayProjects(ourProjects);
+  displayButtons(ourProjects);
+  displayProjects(ourProjects);
 });
 
 function displayButtons(proj) {
-    const buttons = proj.reduce(function(value, item) {
-        if(!value.includes(item.category)) {
-            value.push(item.category);
-        }
-        return value;
-    }, ["all"]);
+  const buttons = proj.reduce(
+    function (value, item) {
+      if (!value.includes(item.category)) {
+        value.push(item.category);
+      }
+      return value;
+    },
+    ["all"]
+  );
 
-    const category = buttons.map((item)=>{
-        return `<button class="filter-btn btn btn-outline-success text-uppercase m-1 " data-id=${item}>${item}</button>`
-    }).join("")
-    btn.innerHTML = category;
-
-    const filterBtn = btn.querySelectorAll(".filter-btn");
-    filterBtn.forEach(function (btn) {
-        btn.addEventListener('click', function(e) {
-            const category = e.target.dataset.id;
-            const projectCategory = proj.filter(function(projCategory) {
-                if(projCategory.category === category) {
-                    return projCategory;
-                }
-            });
-            if(category === 'all') {
-                displayProjects(proj);
-            } else {
-                displayProjects(projectCategory);
-            }
-        })
+  const category = buttons
+    .map((item) => {
+      return `<button class="filter-btn btn btn-outline-success text-uppercase m-1 " data-id=${item}>${item}</button>`;
     })
+    .join("");
+  btn.innerHTML = category;
+
+  const filterBtn = btn.querySelectorAll(".filter-btn");
+  filterBtn.forEach(function (btn) {
+    btn.addEventListener("click", function (e) {
+      const category = e.target.dataset.id;
+      const projectCategory = proj.filter(function (projCategory) {
+        if (projCategory.category === category) {
+          return projCategory;
+        }
+      });
+      if (category === "all") {
+        displayProjects(proj);
+      } else {
+        displayProjects(projectCategory);
+      }
+    });
+  });
 }
 
 function displayProjects(proj) {
-    let displayProj = proj.map((item) => {
-        return `<div class="col">
-                        <div class="card shadow-lg" style="width: 22rem; height:29rem;">
-                        <img src="${item.img}" class="card-img-top" alt="${item.title}">
-                        <div class="card-body">
-                            <h5 class="card-title">${item.title}</h5>
-                            <p class="card-text">${item.description}</p>
-                            <p class=""></p>
-                        </div>
-                        </div>
-                        </div>`;
-      });
-      const data = displayProj.join("");
-      section.innerHTML = data;
+  let displayProj = proj.map((item) => {
+    return `<div class="col">
+    <div class="card h-100">
+      <img src="${item.img}" class="card-img-top" alt="${item.title}">
+      <div class="card-body">
+        <h5 class="card-title">${item.title}</h5>
+        <p class="card-text">${item.description}.</p>
+      </div>
+    </div>
+  </div>`
+                        ;
+  });
+  const data = displayProj.join("");
+  section.innerHTML = data;
 }

@@ -1,6 +1,4 @@
 :root {
-    min-height: 100%  !important;
-    min-width:  100% !important;
     --primary: #00b982;
     --secondry: #e66239;
     --text: #212529;
@@ -9,7 +7,6 @@
 }
 
 .projects-sction {
-    padding: 5rem;
     text-align: center;
 }
 .title {
