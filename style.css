@@ -22,6 +22,14 @@
     color: var(--paragraph);
     line-height: 1.5;
 }
+@media (min-width: 48em) {
+    .title {
+        font-size: 4rem;
+    }       
+    .paragraph {    
+        font-size: 1.875rem;  
+    }  
+}
 .underline {
     background-color: var(--primary);
     width: 30%;
