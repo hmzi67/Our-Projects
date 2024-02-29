@@ -1,0 +1,35 @@
+:root {
+    min-height: 100%  !important;
+    min-width:  100% !important;
+    --primary: #00b982;
+    --secondry: #e66239;
+    --text: #212529;
+    --paragraph: #757d85;
+    font-family: helvetica;
+}
+
+.projects-sction {
+    padding: 5rem;
+    text-align: center;
+}
+.title {
+    color: var(--text);
+    font-size: 3rem;
+    font-weight: 300;
+    margin-bottom: 1.25rem;
+}
+.paragraph {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    color: var(--paragraph);
+    line-height: 1.5;
+}
+.underline {
+    background-color: var(--primary);
+    width: 30%;
+    height: 4px;
+    border: none;
+    display: inline-block;
+    align-items: center;
+}
